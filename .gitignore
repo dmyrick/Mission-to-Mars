@@ -1,7 +1,6 @@
 # Files for reference
-Practice.ipynb
-scraping.py
 .ipynb_checkpoints
+Practice.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

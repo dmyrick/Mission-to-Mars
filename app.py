@@ -14,8 +14,9 @@ mongo = PyMongo(app)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 @app.route("/")
 def index():
-   mars = mongo.db.mars.find_one()
-   return render_template("index.html", mars=mars)
+   scrapped_data_fromdb = mongo.db.mars.find_one()
+   return render_template("index.html", mars=scrapped_data_fromdb)
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -32,4 +33,4 @@ def scrape():
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 if __name__ == "__main__":
-   app.run(use_debugger=False, use_reloader=False, passthrough_errors=True)
+   app.run(debug=True)

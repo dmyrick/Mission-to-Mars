@@ -15,8 +15,8 @@
         <!-- Add Jumbotron to Header -->
         <div class="jumbotron text-center">
           <h1>Mission to Mars</h1>
-          <!-- Add a button to activate scraping script -->
-          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+          <!-- Add a button to activate scraping script + CSS style -->
+          <p><a class="btn btn-primary btn-lg" href="/scrape" style=background-color:green role="button">Scrape New Data</a></p>
         </div>
         <!-- Add section for Mars News -->
         <div class="row" id="mars-news">
@@ -33,7 +33,7 @@
         <!-- Section for Featured Image and Facts table -->
         <div class="row" id="mars-featured-image">
           <div class="col-md-8">
-            <h2>Featured Mars Image</h2>
+            <h3>Featured Mars Image</h3>
             <img
               src="{{mars.featured_image }}"
               class="img-responsive"
@@ -43,10 +43,21 @@
           <div class="col-md-4">
             <!-- Mars Facts -->
             <div class="row" id="mars-facts">
-              <h4>Mars Facts</h4>
+              <h3>Mars Facts</h3>
               {{ mars.facts | safe }}
             </div>
           </div>
+        </div>
+        <!-- Section for Hemisphere Images + CSS thumbnail -->
+        <div class = 'row'>
+            {% for hemisphere in mars.hemispheres %}
+            <div class = 'col-md-3'>
+                <h5>{{hemisphere.title}}</h5>
+                <a href = "#" class = "thumbnail">
+                    <img src = '{{hemisphere.image}}' width = '100%'>
+                </a>
+            </div>
+            {% endfor %}
         </div>
       </div>
     </body>
